@@ -81,11 +81,19 @@ public class Driver{
     }
 
     public static void seatParty(Restaurant restaurant){
-        
+        restaurant.seatParty();        
     }
 
     public static void partyLeaves(Restaurant restaurant){
-        
+        Table table;
+        String party = IOTools.promptLine("Enter the name of the customer that wants to leave: ");
+        table = restaurant.partyExits(party);
+        if(table != null){
+            
+        }
+        else{
+            
+        }
     }
 //table and boolean
     public static void addTable(Restaurant restaurant){
