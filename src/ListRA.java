@@ -27,12 +27,11 @@ public class ListRA<T> implements ListInterface<T> {
         numItems = 0;
     }
 
-    @Override
     /**
      * Adds an object to a specified index.
      * Resizes the collection to make room, if full.
      * @param index The index to add the element.
-     * @param object The item to add.
+     * @param item The item to add.
      */
      public void add(int index, T item) {
          if (index >= 0 && index <= items.length) {
@@ -70,15 +69,14 @@ public class ListRA<T> implements ListInterface<T> {
         }
 
     /**
-     * Increases the size of the array backing the list by about 50%.
+     * Adds an object to the end of the list.
+     * Resizes the collection to make room, if full.
+     * @param item The item to add.
      */
-    private void resize() {
-        T[] temp = (T[]) new Object[1 + items.length * 3 / 2];
-        for (int i = 0; i < numItems; i++) {
-            temp[i] = items[i];
-        }
-        items = temp;
+    public void add(T item) {
+        this.add(numItems, item);
     }
+
 
     public T get(int index)
         throws ListIndexOutOfBoundsException
@@ -120,19 +118,6 @@ public class ListRA<T> implements ListInterface<T> {
                         "ListIndexOutOfBoundsException on remove");
             }  // end if
         } //end remove
-
-
-    /**
-     * Reverses the contents of the List.
-     */
-    public void reverse() {
-        T temp;
-        for (int i = 0; i < numItems / 2; i++) {
-            temp = items[i];
-            items[i] = items[numItems - i - 1];
-            items[numItems - i - 1] = temp;
-        }
-    }
 
     @Override
     public String toString() {
