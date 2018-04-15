@@ -82,7 +82,24 @@ public class Driver{
     }
 
     public static void seatParty(Restaurant restaurant){
-        restaurant.seatParty();        
+        Table table;        
+        AbstractParty party;
+        boolean notSeat = true;
+        int count = 0;
+        while(notSeat){
+            table = restaurant.seatParty(count++);        
+            party = table.getParty();
+            if(table.getSize()>0){
+                System.out.println("Serving customer " + party.getName() + " party of " + party.getSize() + (party instanceof PetParty?" (Pet)": " (No Pet)") + " at table " + table.getName() + " with " + table.getSize() + " seats");
+            notSeat = false;
+            }
+            else{
+                System.out.println("Could not find a table with " + party.getSize() + " seats for customer " + party.getName() + "!");
+            }
+            if(count==restaurant.partyWaitingSize()){
+                System.out.println("No party can be served!");
+            }
+        }
     }
 
     public static void partyLeaves(Restaurant restaurant){
@@ -110,18 +127,33 @@ public class Driver{
     }
 
     public static void removeTable(Restaurant restaurant){
+        String section = IOTools.promptLine("From which section do you want to remove a table from:(P/N) ");
+        String name = IOTools.promptLine("Enter the name of the table to be removed: ");
+        boolean[] removed = restaurant.removeTable(name,section);
+        //where the first boolean is true for table exists in section, false otherwise; and the second is true for in use, false for not
+        if(!removed[0]){
+            System.out.println("This table doesn't exists in the " + (section.equalsIgnoreCase("p")?"":"non" + " pet-friendly section! Please enter another table name.");
+                    }
+                    else{
+                    if(removed[1]){
+                    System.out.println("Can't remove a table that is currently in use");
+                    }
+                    else{
+                    System.out.println("Table " + name + " has been removed");
+                    }
+                    }
+                    }
 
-    }
+                    public static void displyAvailableTables(Restaurant restaurant){
+                    restaurant.availableTableDetails();
+                    }
 
-    public static void displyAvailableTables(Restaurant restaurant){
+                    public static void displayPartyWait(Restaurant restaurant){
+                    restaurant.petWaitingDetails();
+                    restaurant.noPetWaitingDetails();
+                    }
 
-    }
-
-    public static void displayPartyWait(Restaurant restaurant){
-
-    }
-
-    public static void displayPartyServed(Restaurant restaurant){
-
-    }
+                    public static void displayPartyServed(Restaurant restaurant){
+                        restaurant.inUseTableDetails();
+                    }
 }   
