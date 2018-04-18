@@ -17,15 +17,15 @@ public class Driver {
         for(int i = 0; i < tables; i++) {
             addTable(restaurant, false);
         }
-        System.out.println("Select from the following menu:" +
-                           "    0.	Close the restaurant." +
-                           "    1.	Customer party enters the restaurant." +
-                           "    2.	Customer party is seated and served." +
-                           "    3.	Customer party leaves the restaurant." +
-                           "    4.	Add a table." +
-                           "    5.	Remove a table." +
-                           "    6.	Display available tables." +
-                           "    7.	Display info about waiting customer parties." +
+        System.out.println("Select from the following menu:\n" +
+                           "    0.	Close the restaurant.\n" +
+                           "    1.	Customer party enters the restaurant.\n" +
+                           "    2.	Customer party is seated and served.\n" +
+                           "    3.	Customer party leaves the restaurant.\n" +
+                           "    4.	Add a table.\n" +
+                           "    5.	Remove a table.\n" +
+                           "    6.	Display available tables.\n" +
+                           "    7.	Display info about waiting customer parties.\n" +
                            "    8.	Display info about customer parties being served.");
         do {
             in = IOTools.promptLine("Make your menu selection now: ");
