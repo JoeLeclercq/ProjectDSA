@@ -334,6 +334,30 @@ public class Restaurant {
         return found;
     }
 
+    public String waitingDetails() {
+        if (partiesWaiting.size() == 0) {
+            return "No customers are waiting for tables!";
+        }
+    
+        StringBuilder petWaiting = new StringBuilder();
+        StringBuilder noPetWaiting = new StringBuilder();
+        int size = partiesWaiting.size();
+        AbstractParty party;
+
+        for (int i = 0; i < size; i++) {
+            party = partiesWaiting.get(i);
+            if (party instanceof PetParty) {
+                petWaiting.append(party).append("\n");
+            } else {
+                noPetWaiting.append(party).append("\n");
+            }
+        }
+
+        return "The following customer parties are waiting for tables: \n"
+                + petWaiting.toString().trim()
+                + noPetWaiting.toString().trim();
+    }
+
     public String availableTableDetails() {
         int size = openPetTables.size();
         String output = "The following " + size 
