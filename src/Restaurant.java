@@ -143,6 +143,70 @@ public class Restaurant {
     }
 
     /**
+     * Adds a table into the given section.
+     * Precondition: No table already exists with the given name in
+     * the specified section.
+     * @param Table The Table to be added
+     * @param petSection True if this table goes in the Pet section,
+     * false otherwise.
+     */
+    public void addTable(Table table, boolean petSection) {
+        ListRA<Table> openList = petSection
+                ? openPetTables
+                : openNoPetTables;
+        int index = searchOpenTables(openList, table.getSize());
+        if (index < 0)
+            index = -index - 1;
+
+        openList.add(index, table);
+    }
+
+    /**
+     * Removes a table with the specified name from the specified section,
+     * if it exists and is possible. Will not remove a table that is 
+     * currently in-use or one that is in the wrong section.
+     * @param name The name of the table to remove.
+     * @param petSection True if the table should be removed from the pet
+     * section, false otherwise.
+     * @return A string with information regarding the table's removal.
+     */
+    public String removeTable(String name, boolean petSection) {
+        ListRA<Table> openList = petSection ? openPetTables : openNoPetTables;
+        Table correctTable = null;
+        int openSize = openList.size();
+        int inUseSize = inUseTables.size();
+
+        for (int i = 0; i < openSize && correctTable == null; i++) {
+            if (openList.get(i).getName().equalsIgnoreCase(name)) {
+                correctTable = openList.get(i);
+                openList.remove(i);
+            }
+        }
+
+        if (correctTable == null) {
+            for (int i = 0; i < inUseSize && correctTable == null; i++) {
+                if (inUseTables.get(i).getName().equalsIgnoreCase(name)
+                        && (petSection 
+                        ? inUseTables.get(i).getParty() instanceof PetParty
+                        : inUseTables.get(i).getParty() instanceof NoPetParty)) {
+                    correctTable = inUseTables.get(i);
+                }
+            }
+            
+            if (correctTable == null) { //no table with the given name
+                return "This table doesn't exist in the "
+                    + (petSection ? "pet-friendly" : "non pet-friendly")
+                    + " section!";
+            } else { //in use table with the given name
+                return "Can't remove a table that is currently in use!";
+            }
+        } else {
+            return "Table " + correctTable.getName()
+                + " has been removed.";
+        }
+    }
+
+    /**
      * Searches for the specified item within the in use tables
      * using a binary search.
      * @param name The name of the party to search for.
@@ -243,28 +307,26 @@ public class Restaurant {
         return found;
     }
 
-    public boolean tableNameFree(String name) {
+    public boolean tableNameFree(String name, boolean petSection) {
         boolean found = false;
-        int size = openPetTables.size();
+        ListRA<Table> openList = 
+                petSection ? openPetTables : openNoPetTables;
+        int size = openList.size();
 
         name = name.toUpperCase();
-
+        
         for (int i = 0; i < size && !found; i++) {
-            if (openPetTables.get(i).getName().equals(name)) {
-                found = true;
-            }
-        }
-
-        size = openNoPetTables.size();
-        for (int i = 0; i < size && !found; i++) {
-            if (openNoPetTables.get(i).getName().equals(name)) {
+            if (openList.get(i).getName().equals(name)) {
                 found = true;
             }
         }
 
         size = inUseTables.size();
         for (int i = 0; i < size && !found; i++) {
-            if (inUseTables.get(i).getName().equals(name)) {
+            if (inUseTables.get(i).getName().equals(name)
+                    && (petSection
+                    ? inUseTables.get(i).getParty() instanceof PetParty
+                    : inUseTables.get(i).getParty() instanceof NoPetParty)) {
                 found = true;
             }
         }
