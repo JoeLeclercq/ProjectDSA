@@ -57,6 +57,7 @@ public class Restaurant {
                     index = -index - 1;
                 Table table = openList.get(index);
                 openList.remove(index);
+                partiesWaiting.remove(i);
                 table.setParty(party);
                 inUseTables.add(
                         -searchInUseTables(partyName)-1, table); 
