@@ -67,7 +67,7 @@ public class Restaurant {
 
                 seated = true;
             } else {
-                sb.append("Could not find a table with ")
+                sb.append("\n").append("Could not find a table with ")
                     .append(partySize)
                     .append(partySize > 1 
                             ? " seats for customer "
@@ -355,7 +355,7 @@ public class Restaurant {
 
         return "The following customer parties are waiting for tables: \n"
                 + petWaiting.toString().trim() 
-                + "\n"
+                + (petWaiting.isEmpty() || noPetWaiting.isEmpty) ? "" : "\n"
                 + noPetWaiting.toString().trim();
     }
 
