@@ -379,4 +379,57 @@ public class Restaurant {
         return output;
     }
 
+    public String inUseTableDetails() {
+        int size = inUseTables.size();
+        int pet = 0;
+        int noPet = 0;
+
+        if (size == 0) {
+            return "No customers are being served!";
+        } 
+
+        StringBuilder outputPet= new StringBuilder("");
+        StringBuilder outputNoPet = new StringBuilder("");
+        Table table;
+        String output = "";
+        AbstractParty party;
+
+        for(int i = 0; i < size; i++){
+            table = inUseTables.get(i);
+            party = table.getParty();
+            if(party instanceof PetParty){
+                outputPet.append("\nServing").append(party.toString())
+                    .append(" at ").append(table.toString());
+                pet++;
+            }
+            else{
+                outputNoPet.append("\nServing").append(party.toString())
+                    .append(" at ").append(table.toString());
+                noPet++;
+            }
+            if(pet > 0){
+                if(pet == 1){
+                    output += "The following customer is being served in "
+                       + "the pet-friendly section" + outputPet.toString();
+                } else {
+                    output += "The following customers are being served "
+                        + "in the pet-friendly section"
+                        + outputPet.toString();
+                }
+            }
+            if(noPet > 0){
+                if(noPet == 1){
+                    output += "The following customer is being served in "
+                        + "the pet-friendly section"
+                        + outputNoPet.toString();
+                } else {
+                    output += "The following customers are being served "
+                        + "in the pet-friendly section"
+                        + outputNoPet.toString();
+                }
+            }
+        }
+        
+        return output;
+    }
 }
