@@ -193,8 +193,7 @@ public class Driver {
      * @param restaurant The Restaurant whose party details will be printed out.
      */
     public static void displayPartyWait(Restaurant restaurant) {
-        System.out.println(restaurant.petWaitingDetails());
-        System.out.println(restaurant.noPetWaitingDetails());
+        System.out.println(restaurant.waitingDetails());
     }
 
     /**
