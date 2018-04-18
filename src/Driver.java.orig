@@ -64,7 +64,7 @@ public class Driver {
     /**
      * Helper method to add a party to the restaurant.
      * Input includes a customer name, the size of the party,
-     * and whether they are a pet or no pet party.
+     * and whether they are a pet or no pet-party.
      * A party will be invalid if a party with the same name is
      * in the restaurant already.
      *
@@ -208,33 +208,33 @@ public class Driver {
     }
 
     /**
-    * Method to print out the table that do not have a party.
-    *
-    * @param restaurant The Restaurant whose table details will be printed out.
-    */
+ * Method to print out the table that do not have a party.
+ *
+ * @param restaurant The Restaurant whose table details will be printed out.
+ */
     public static void displayAvailableTables(Restaurant restaurant) {
-        System.out.println(restaurant.availableTableDetails());
+        restaurant.availableTableDetails();
     }
 
-    /**
-     * Method to print out the details of the parties currently not seated.
-     * First the pet parties details will be printed, then the no pet party
-     * details will be printed.
-     *
-     * @param restuarant The Restaurant whose party details will be printed out.
-     */
+/**
+ * Method to print out the details of the parties currently not seated.
+ * First the pet parties details will be printed, then the no pet party
+ * details will be printed.
+ *
+ * @param restuarant The Restaurant whose party details will be printed out.
+ */
     public static void displayPartyWait(Restaurant restaurant) {
-        System.out.println(restaurant.petWaitingDetails());
-        System.out.println(restaurant.noPetWaitingDetails());
+        restaurant.petWaitingDetails();
+        restaurant.noPetWaitingDetails();
     }
 
-    /**
-     * Method to print out the information of the current tables in use
-     * and the parties at the tables.
-     *
-     * @param restuarant The Restaurant whose in use table details will be printed out.
-     */
+/**
+ * Method to print out the information of the current tables in use
+ * and the parties at the tables.
+ *
+ * @param restuarant The Restaurant whose in use table details will be printed out.
+ */
     public static void displayPartyServed(Restaurant restaurant) {
-        System.out.println(restaurant.inUseTableDetails());
+        restaurant.inUseTableDetails();
     }
 }

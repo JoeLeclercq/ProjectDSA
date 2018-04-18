@@ -178,6 +178,18 @@ public class Restaurant{
         return found;
     }
     
-
+    public String availableTableDetails(){
+        int size = openPetTables.size();
+        String output = "The following " + size + (size>1?" tables are ":" table is " + "available in the pet-friendly section:";
+        for(Table t:openPetTables){
+            output+="\n" + t.toString();
+        }
+        size = openNoPetTables.size();
+        output+="\nThe following " + size + (size>1?" tables are ":" table is" + "available in the non-pet-friendly section:";
+        for(Table t:openNoPetTables){
+            output+="\n" + t.toString();
+        }
+        return output;
+    }
 
 }

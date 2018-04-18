@@ -1,6 +1,6 @@
 public abstract class AbstractParty{
-    private String name;
-    private int size;
+    protected String name;
+    protected int size;
     
     public AbstractParty(String name, int size){
         this.name = name;
@@ -13,5 +13,9 @@ public abstract class AbstractParty{
 
     public int getSize(){
         return size;
+    }
+    
+    public String toString(){
+        return "Customer " + name + " party of " + size;
     }
 }

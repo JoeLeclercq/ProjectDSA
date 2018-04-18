@@ -19,5 +19,7 @@ public class Table{
     public void setParty(AbstractParty party){
         this.party = party;
     }
-
+    public String toString(){
+        return "table " + name + " with " + size + " seats";
+    }
 }
