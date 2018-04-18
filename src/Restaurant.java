@@ -33,10 +33,12 @@ public class Restaurant {
         boolean seated = false;
         int largestOpenPetSize = 
                 openPetTables.size() > 0
-                ? openPetTables.get(openPetTables.size() - 1) : 0;
+                ? openPetTables.get(openPetTables.size() - 1).getSize()
+                : 0;
         int largestOpenNoPetSize = 
                 openNoPetTables.size() > 0
-                ? openNoPetTables.get(openNoPetTables.size() - 1) : 0;
+                ? openNoPetTables.get(openNoPetTables.size() - 1).getSize()
+                : 0;
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < sizeWaiting && !seated; i++) {
@@ -83,7 +85,7 @@ public class Restaurant {
      * @return A string containing information about the party who exited,
      * if it exists, or null otherwise.
      */
-    public Table partyExits(String name) {
+    public String partyExits(String name) {
         int index = searchInUseTables(name.toUpperCase());
 
         if (index >= 0) {
@@ -133,7 +135,7 @@ public class Restaurant {
                         : " seat has been freed.").append("\n");
         sb.append("Customer ").append(party.getName()).append(" party of ")
             .append(party.getSize())
-            .append(party instanceof Pet
+            .append(party instanceof PetParty
                         ? " (Pet) is leaving the restaurant."
                         : " (NoPet) is leaving the restaurant.");
 
@@ -276,8 +278,8 @@ public class Restaurant {
                 + (size > 1 ? " tables are " : " table is ")
                 + "available in the pet-friendly section:";
 
-        for(Table t : openPetTables) {
-            output += "\n" + t.toString();
+        for(int i = 0; i < size; i++) {
+            output += "\n" + openPetTables.get(i).toString();
         }
 
         size = openNoPetTables.size();
@@ -285,8 +287,8 @@ public class Restaurant {
                 + (size>1?" tables are ":" table is") 
                 + "available in the non-pet-friendly section:";
 
-        for(Table t : openNoPetTables) {
-            output += "\n" + t.toString();
+        for(int i = 0; i < size; i++) {
+            output += "\n" + openNoPetTables.get(i).toString();
         }
         return output;
     }
