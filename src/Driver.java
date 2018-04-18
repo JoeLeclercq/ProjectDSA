@@ -77,7 +77,7 @@ public class Driver {
         String name;
         int size;
         boolean pet;
-        name = IOTools.promptLine("Enter customer name : ");
+        name = IOTools.promptLine("Enter customer name : ").trim();
         while(!restaurant.partyNameFree(name)) {
             System.out.println("There already exists a customer with this name in the restaurant.\n\tPlease select another name.");
             name = IOTools.promptLine("Enter customer name: ").trim();
@@ -138,7 +138,7 @@ public class Driver {
     public static void addTable(Restaurant restaurant) throws IOException {
         addTable(restaurant, 
             IOTools.promptLine("To which section would you like to add " 
-                + "this table? (P/N): ").equalsIgnoreCase("P"));
+                + "this table? (P/N): ").trim().equalsIgnoreCase("P"));
     }
 
     /**
@@ -181,12 +181,12 @@ public class Driver {
             throws IOException {
         System.out.println("You are now removing a table");
         String section = IOTools.promptLine("From which section would you "
-                + "like to remove this table? (P/N): ");
+                + "like to remove this table? (P/N): ").trim();
         while(!section.equalsIgnoreCase("P") && !section.equalsIgnoreCase("N")){
-            section = IOTools.promptLine("Invalid entry, enter P or N: ");
+            section = IOTools.promptLine("Invalid entry, enter P or N: ").trim();
         }
         boolean pet = section.equalsIgnoreCase("P");
-        String name = IOTools.promptLine("Enter table name: ");
+        String name = IOTools.promptLine("Enter table name: ").trim();
         System.out.println(restaurant.removeTable(name,pet));
     }
 
