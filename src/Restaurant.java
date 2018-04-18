@@ -406,12 +406,12 @@ public class Restaurant {
             table = inUseTables.get(i);
             party = table.getParty();
             if(party instanceof PetParty){
-                outputPet.append("\nServing").append(party.toString())
+                outputPet.append("\nServing ").append(party.toString())
                     .append(" at ").append(table.toString());
                 pet++;
             }
             else{
-                outputNoPet.append("\nServing").append(party.toString())
+                outputNoPet.append("\nServing ").append(party.toString())
                     .append(" at ").append(table.toString());
                 noPet++;
             }
