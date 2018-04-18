@@ -149,8 +149,11 @@ public class Driver {
         while(!isDone) {
             name = IOTools.promptLine("Enter table name: ");
             isDone = restaurant.tableNameFree(name, pet);
+            if(!isDone){
+                System.out.println("This table already exists! Please enter another table name.");
+            }
         }
-        int size = IOTools.promptPositiveInteger("How many seats are at this table?");
+        int size = IOTools.promptPositiveInteger("Enter number of seats: ");
         restaurant.addTable(new Table(name, size), pet);
     }
     /**
