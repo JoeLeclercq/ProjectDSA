@@ -168,27 +168,18 @@ public class Driver {
      * @param restaurant The Restaurant object that will have a table removed.
      */
     public static void removeTable(Restaurant restaurant) {
-        String section = IOTools.promptLine("From which section do you want to remove a table from:(P/N) ");
-        String name = IOTools.promptLine("Enter the name of the table to be removed: ");
-        boolean[] removed = restaurant.removeTable(name,section);
-        //where the first boolean is true for table exists in section, false otherwise; and the second is true for in use, false for not
-        if(!removed[0]) {
-            System.out.println("This table doesn't exists in the " + (section.equalsIgnoreCase("p")?"":"non" + " pet-friendly section! Please enter another table name."));
+        System.out.println("You are now removing a table");
+        String section = IOTools.promptLine("From which section would you like to remove this table?(P/N) ");
+        while(!section.equalsIgnoreCase("P") && !section.equalsIgnoreCase("N")){
+            section = IOTools.promptLine("Invalid entry, enter P or N: ");
         }
-        else {
-            if(removed[1]) {
-                System.out.println("Can't remove a table that is currently in use");
-            }
-
-            else {
-                System.out.println("Table " + name + " has been removed");
-            }
-        }
+        boolean pet = section.equalsIgnoreCase("P");
+        String name = IOTools.promptLine("Enter table name: ");
+        System.out.println(restaurant.removeTable(name,pet));
     }
 
     /**
     * Method to print out the table that do not have a party.
-    *
     * @param restaurant The Restaurant whose table details will be printed out.
     */
     public static void displayAvailableTables(Restaurant restaurant) {
@@ -199,8 +190,7 @@ public class Driver {
      * Method to print out the details of the parties currently not seated.
      * First the pet parties details will be printed, then the no pet party
      * details will be printed.
-     *
-     * @param restuarant The Restaurant whose party details will be printed out.
+     * @param restaurant The Restaurant whose party details will be printed out.
      */
     public static void displayPartyWait(Restaurant restaurant) {
         System.out.println(restaurant.petWaitingDetails());
@@ -210,8 +200,7 @@ public class Driver {
     /**
      * Method to print out the information of the current tables in use
      * and the parties at the tables.
-     *
-     * @param restuarant The Restaurant whose in use table details will be printed out.
+     * @param restaurant The Restaurant whose in use table details will be printed out.
      */
     public static void displayPartyServed(Restaurant restaurant) {
         System.out.println(restaurant.inUseTableDetails());
