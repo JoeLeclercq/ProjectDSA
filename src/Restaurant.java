@@ -422,25 +422,25 @@ public class Restaurant {
         if(pet > 0){
             if(pet == 1){
                 output += "The following customer is being served in "
-                    + "the pet-friendly section" + outputPet.toString();
+                    + "the pet-friendly section" + outputPet.toString() + "\n";
             } else {
                 output += "The following customers are being served "
                     + "in the pet-friendly section"
-                    + outputPet.toString();
+                    + outputPet.toString() + "\n";
             }
         }
         if(noPet > 0){
             if(noPet == 1){
                 output += "The following customer is being served in "
                     + "the pet-friendly section"
-                    + outputNoPet.toString();
+                    + outputNoPet.toString() + "\n";
             } else {
                 output += "The following customers are being served "
                     + "in the pet-friendly section"
-                    + outputNoPet.toString();
+                    + outputNoPet.toString() + "\n";
             }
         }
 
-        return output;
+        return output.trim();
     }
 }
