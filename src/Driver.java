@@ -61,6 +61,7 @@ public class Driver {
                 default:
                     System.out.println("Not an acceptable menu selection");
             }
+            System.out.println();
         } while(true);
     }
     /**
@@ -79,10 +80,10 @@ public class Driver {
         name = IOTools.promptLine("Enter customer name : ");
         while(!restaurant.partyNameFree(name)) {
             System.out.println("There already exists a customer with this name in the restaurant.\n\tPlease select another name.");
-            name = IOTools.promptLine("Enter customer name : ");
+            name = IOTools.promptLine("Enter customer name: ").trim();
         }
         size = IOTools.promptPositiveInteger("Enter number of seats for customer " + name + ": ");
-        pet = IOTools.promptYesNo("Does your party have pets?");
+        pet = IOTools.promptYesNo("Does your party have pets? (y/n): ");
         if(pet) {
             restaurant.partyEnters(new PetParty(name, size));
         }
@@ -116,7 +117,7 @@ public class Driver {
         }
         else {
             String party = IOTools.promptLine("Enter the name of the "
-                    + "customer that wants to leave: ");
+                    + "customer that wants to leave: ").trim();
             String exitInfo = restaurant.partyExits(party);
             if(exitInfo != null) {
                 System.out.println(exitInfo);
@@ -155,10 +156,11 @@ public class Driver {
         boolean isDone = false;
         String name = null;
         while(!isDone) {
-            name = IOTools.promptLine("Enter table name: ");
+            name = IOTools.promptLine("Enter table name: ").trim();
             isDone = restaurant.tableNameFree(name, pet);
             if(!isDone){
-                System.out.println("This table already exists! Please enter another table name.");
+                System.out.println("This table already exists! Please "
+                    + "enter another table name.");
             }
         }
         int size = IOTools.promptPositiveInteger("Enter number of seats: ");
@@ -178,7 +180,8 @@ public class Driver {
     public static void removeTable(Restaurant restaurant)
             throws IOException {
         System.out.println("You are now removing a table");
-        String section = IOTools.promptLine("From which section would you like to remove this table?(P/N) ");
+        String section = IOTools.promptLine("From which section would you "
+                + "like to remove this table? (P/N): ");
         while(!section.equalsIgnoreCase("P") && !section.equalsIgnoreCase("N")){
             section = IOTools.promptLine("Invalid entry, enter P or N: ");
         }
