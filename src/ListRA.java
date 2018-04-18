@@ -33,40 +33,40 @@ public class ListRA<T> implements ListInterface<T> {
      * @param index The index to add the element.
      * @param item The item to add.
      */
-     public void add(int index, T item) {
-         if (index >= 0 && index <= items.length) {
-             //array full, resize necessary
-             if (numItems == items.length) {
-                 //resize and add at same time, don't traverse collection twice
-                 T[] temp = (T[]) new Object[1 + items.length * 3 / 2];
+    public void add(int index, T item) {
+        if (index >= 0 && index <= items.length) {
+            //array full, resize necessary
+            if (numItems == items.length) {
+                //resize and add at same time, don't traverse collection twice
+                T[] temp = (T[]) new Object[1 + items.length * 3 / 2];
 
-                 //copy before index directly
-                 for (int i = 0; i < index; i++) {
-                     temp[i] = items[i];
-                 }
+                //copy before index directly
+                for (int i = 0; i < index; i++) {
+                    temp[i] = items[i];
+                }
 
-                 //place new object into index
-                 temp[index] = item;
+                //place new object into index
+                temp[index] = item;
 
-                 //move old items over one
-                 for (int i = index; i < items.length; i++) {
-                     temp[i + 1] = items[i];
-                 }
+                //move old items over one
+                for (int i = index; i < items.length; i++) {
+                    temp[i + 1] = items[i];
+                }
 
-                 //replace old reference, unlink for garbage collection
-                 items = temp;
-             } else {
-                 for (int pos = numItems-1; pos >= index; pos--) {
-                     items[pos+1] = items[pos];
-                 } 
-                 items[index] = item;
-             }
-             numItems++;
-         } else {
-             throw new ListIndexOutOfBoundsException("Out of bounds " +
-                        "exception in add.");
+                //replace old reference, unlink for garbage collection
+                items = temp;
+            } else {
+                for (int pos = numItems-1; pos >= index; pos--) {
+                    items[pos+1] = items[pos];
+                }
+                items[index] = item;
             }
+            numItems++;
+        } else {
+            throw new ListIndexOutOfBoundsException("Out of bounds " +
+                                                    "exception in add.");
         }
+    }
 
     /**
      * Adds an object to the end of the list.
@@ -79,49 +79,49 @@ public class ListRA<T> implements ListInterface<T> {
 
 
     public T get(int index)
-        throws ListIndexOutOfBoundsException
+    throws ListIndexOutOfBoundsException
+    {
+        if (index >= 0 && index < numItems)
         {
-            if (index >= 0 && index < numItems)
-            {
-                return items[index];
-            }
-            else
-            {
-                // index out of range
-                throw new ListIndexOutOfBoundsException(
-                        "ListIndexOutOfBoundsException on get");
-            }  // end if
-        } // end get
+            return items[index];
+        }
+        else
+        {
+            // index out of range
+            throw new ListIndexOutOfBoundsException(
+                "ListIndexOutOfBoundsException on get");
+        }  // end if
+    } // end get
 
     public void remove(int index)
-        throws ListIndexOutOfBoundsException
+    throws ListIndexOutOfBoundsException
+    {
+        if (index >= 0 && index < numItems)
         {
-            if (index >= 0 && index < numItems)
+            // delete item by shifting all items at
+            // positions > index toward the beginning of the list
+            // (no shift if index == size)
+            for (int pos = index+1; pos < numItems; pos++) //textbook code modified to eliminate logic error causing ArrayIndexOutOfBoundsException
+
             {
-                // delete item by shifting all items at
-                // positions > index toward the beginning of the list
-                // (no shift if index == size)
-                for (int pos = index+1; pos < numItems; pos++) //textbook code modified to eliminate logic error causing ArrayIndexOutOfBoundsException
+                items[pos-1] = items[pos];
+            }  // end for
 
-                {
-                    items[pos-1] = items[pos];
-                }  // end for
+            //fixes memory leak, removes inaccessible reference
+            items[--numItems] = null;
 
-                //fixes memory leak, removes inaccessible reference
-                items[--numItems] = null;
-
-            }
-            else
-            {
-                // index out of range
-                throw new ListIndexOutOfBoundsException(
-                        "ListIndexOutOfBoundsException on remove");
-            }  // end if
-        } //end remove
+        }
+        else
+        {
+            // index out of range
+            throw new ListIndexOutOfBoundsException(
+                "ListIndexOutOfBoundsException on remove");
+        }  // end if
+    } //end remove
 
     @Override
     public String toString() {
-        if (numItems == 0) 
+        if (numItems == 0)
             return "[]";
 
         StringBuilder sb = new StringBuilder("[");
@@ -129,7 +129,7 @@ public class ListRA<T> implements ListInterface<T> {
             sb.append(items[i].toString()).append(", ");
         }
 
-        return sb.substring(0, sb.length() - 2) + "]"; 
+        return sb.substring(0, sb.length() - 2) + "]";
     }
 
 }

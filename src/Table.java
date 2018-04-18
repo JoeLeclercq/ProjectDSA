@@ -1,25 +1,50 @@
-public class Table{
+public class Table {
     private int size;
     private String name;
     private AbstractParty party;
-    public Table(String name, int size){
+    public Table(String name, int size) {
         this.name = name;
         this.size = size;
         party = null;
     }
-    public String getName(){
+    /**
+ * Returns the name of the table 
+ *
+ * @return The name of the table.
+ */
+    public String getName() {
         return name;
     }
-    public int getSize(){
+/**
+ * Returns the size of the table.
+ *
+ * @return The size of the table.
+ */
+    public int getSize() {
         return size;
     }
-    public AbstractParty getParty(){
+/**
+ * Returns party seated at the table.
+ *
+ * @return The party seated at the table.
+ */
+    public AbstractParty getParty() {
         return party;
     }
-    public void setParty(AbstractParty party){
+/**
+ * Set the party seated at the table.
+ *
+ * @param party party to be seated at the table
+ */
+    public void setParty(AbstractParty party) {
         this.party = party;
     }
-    public String toString(){
+/**
+ * Returns a String representation of the table
+ *
+ * @return a string containing the table name and number of seats
+ */
+    public String toString() {
         return "table " + name + " with " + size + " seats";
     }
 }

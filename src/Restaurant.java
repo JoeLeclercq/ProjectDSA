@@ -1,11 +1,11 @@
-public class Restaurant{
+public class Restaurant {
     ListRA<AbstractParty> partiesWaiting;
     ListRA<Table> openPetTables;
     ListRA<Table> openNoPetTables;
     ListRA<Table> inUseTables;
 
     public Restaurant() {
-        partiesWaiting = new ListRA<AbstractParty>();    
+        partiesWaiting = new ListRA<AbstractParty>();
         openPetTables = new ListRA<Table>();
         openNoPetTables = new ListRA<Table>();
         inUseTables = new ListRA<Table>();
@@ -22,7 +22,7 @@ public class Restaurant{
      * The restaurant exits the party with the given name and frees
      * the table they're at, if they exist.
      * @param name The name of the party.
-     * @return 
+     * @return
      */
     public Table partyExits(String name) {
         int index = searchInUseTables(name.toUpperCase());
@@ -30,17 +30,17 @@ public class Restaurant{
         if (index >= 0) {
             Table table = inUseTables.get(index);
             AbstractParty party = table.getParty();
-            boolean petParty = party instanceof PetParty;            
+            boolean petParty = party instanceof PetParty;
 
             inUseTables.remove(index);
             table.setParty(null);
 
             if (petParty) {
                 int addIndex = searchOpenTables(openPetTables, table.getSize());
-                openPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);        
+                openPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);
             } else {
                 int addIndex = searchOpenTables(openNoPetTables, table.getSize());
-                openNoPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);        
+                openNoPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);
             }
             return table;
         } else {
@@ -52,7 +52,7 @@ public class Restaurant{
      * Searches for the specified item within the in use tables
      * using a binary search.
      * @param name The name of the party to search for.
-     * @return The index of the item within the list, if it exists. 
+     * @return The index of the item within the list, if it exists.
      * If it is not within the list, returns -index - 1 for the index where
      * the item should exist.
      */
@@ -61,7 +61,7 @@ public class Restaurant{
         int min = 0;
         int max = listSize - 1;
         int mid = (max + min) / 2;
-        String midItem = 
+        String midItem =
             listSize == 0 ? null : inUseTables.get(mid).getParty().getName();
 
         while (min < max) {
@@ -177,17 +177,17 @@ public class Restaurant{
 
         return found;
     }
-    
-    public String availableTableDetails(){
+
+    public String availableTableDetails() {
         int size = openPetTables.size();
         String output = "The following " + size + (size>1?" tables are ":" table is " + "available in the pet-friendly section:";
-        for(Table t:openPetTables){
-            output+="\n" + t.toString();
+        for(Table t:openPetTables) {
+        output+="\n" + t.toString();
         }
         size = openNoPetTables.size();
-        output+="\nThe following " + size + (size>1?" tables are ":" table is" + "available in the non-pet-friendly section:";
-        for(Table t:openNoPetTables){
-            output+="\n" + t.toString();
+               output+="\nThe following " + size + (size>1?" tables are ":" table is" + "available in the non-pet-friendly section:";
+        for(Table t:openNoPetTables) {
+        output+="\n" + t.toString();
         }
         return output;
     }

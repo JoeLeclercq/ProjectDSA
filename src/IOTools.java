@@ -6,8 +6,8 @@ public class IOTools {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static final String INT_FORMAT      = "^[+-]?\\d+$";
     private static final String POS_INT_FORMAT  = "^+?\\d+$";
-    private static final String FLOAT_FORMAT    
-            = "^[+-]?(\\d+\\.?\\d*|.?\\d+)([eE][+-]?\\d+)?$";
+    private static final String FLOAT_FORMAT
+        = "^[+-]?(\\d+\\.?\\d*|.?\\d+)([eE][+-]?\\d+)?$";
     private static final String YES_NO_FORMAT   = "^(n|N|no|No|y|Y|yes|Yes)$";
     private static final String YES_FORMAT      = "^(y|Y|yes|Yes)$";
 
@@ -26,14 +26,14 @@ public class IOTools {
         int number;
 
         while (!(response = readLine().trim()).matches(INT_FORMAT) ||
-                (number = Integer.parseInt(response)) < lowerBound || 
+                (number = Integer.parseInt(response)) < lowerBound ||
                 number > upperBound) {
             System.out.print("\tThat is not a valid integer. Please "
-                    + "choose an integer between " + lowerBound + " and "
-                    + upperBound + ": ");
+                             + "choose an integer between " + lowerBound + " and "
+                             + upperBound + ": ");
         }
 
-        return Integer.parseInt(response); 
+        return Integer.parseInt(response);
     }
 
     /**
@@ -50,7 +50,7 @@ public class IOTools {
         while (!(response = readLine().trim()).matches(INT_FORMAT)) {
             System.out.print("\tThat is not a valid integer. Please choose an integer: ");
         }
-        
+
         return Integer.parseInt(response);
     }
 
@@ -68,17 +68,17 @@ public class IOTools {
         while (!(response = readLine().trim()).matches(POS_INT_FORMAT)) {
             System.out.print("\tThat is not a valid integer. Please choose an integer: ");
         }
-        
+
         return Integer.parseInt(response);
     }
 
     public static double promptDouble(String prompt) throws IOException {
         System.out.print(prompt);
-        String response = null; 
+        String response = null;
 
         while (!(response = readLine().trim()).matches(FLOAT_FORMAT)) {
-            System.out.print("\tThat is not a valid decimal value. " 
-                    + "Enter a decimal value: ");
+            System.out.print("\tThat is not a valid decimal value. "
+                             + "Enter a decimal value: ");
         }
 
         return Double.parseDouble(response);
