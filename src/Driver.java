@@ -28,7 +28,7 @@ public class Driver {
                            "    7.	Display info about waiting customer parties.\n" +
                            "    8.	Display info about customer parties being served.");
         do {
-            in = IOTools.promptLine("Make your menu selection now: ");
+            in = IOTools.promptInteger("Make your menu selection now: ",0,8);
             switch (in) {
             case "0":
                 System.exit(1);
