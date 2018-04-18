@@ -354,7 +354,8 @@ public class Restaurant {
         }
 
         return "The following customer parties are waiting for tables: \n"
-                + petWaiting.toString().trim()
+                + petWaiting.toString().trim() 
+                + "\n"
                 + noPetWaiting.toString().trim();
     }
 
@@ -416,29 +417,30 @@ public class Restaurant {
                     .append(" at ").append(table.toString());
                 noPet++;
             }
-            if(pet > 0){
-                if(pet == 1){
-                    output += "The following customer is being served in "
-                       + "the pet-friendly section" + outputPet.toString();
-                } else {
-                    output += "The following customers are being served "
-                        + "in the pet-friendly section"
-                        + outputPet.toString();
-                }
-            }
-            if(noPet > 0){
-                if(noPet == 1){
-                    output += "The following customer is being served in "
-                        + "the pet-friendly section"
-                        + outputNoPet.toString();
-                } else {
-                    output += "The following customers are being served "
-                        + "in the pet-friendly section"
-                        + outputNoPet.toString();
-                }
+        }
+
+        if(pet > 0){
+            if(pet == 1){
+                output += "The following customer is being served in "
+                    + "the pet-friendly section" + outputPet.toString();
+            } else {
+                output += "The following customers are being served "
+                    + "in the pet-friendly section"
+                    + outputPet.toString();
             }
         }
-        
+        if(noPet > 0){
+            if(noPet == 1){
+                output += "The following customer is being served in "
+                    + "the pet-friendly section"
+                    + outputNoPet.toString();
+            } else {
+                output += "The following customers are being served "
+                    + "in the pet-friendly section"
+                    + outputNoPet.toString();
+            }
+        }
+
         return output;
     }
 }
