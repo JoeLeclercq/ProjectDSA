@@ -1,3 +1,5 @@
 #.class files
 bin/
 bin/*
+
+src/*.orig
