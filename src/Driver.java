@@ -97,7 +97,7 @@ public class Driver {
      * @param restaurant The Restaurant object where a party will be seated.
      */
     public static void seatParty(Restaurant restaurant) {
-        System.out.println(restaurant.seatparty());
+        System.out.println(restaurant.seatParty());
     }
     /**
      * Allows a party to leave their table.
