@@ -215,12 +215,14 @@ public class Restaurant {
      * the item should exist.
      */
     private int searchInUseTables(String name) {
+        name = name.toUpperCase();
         int listSize = inUseTables.size();
         int min = 0;
         int max = listSize - 1;
         int mid = (max + min) / 2;
         String midItem =
-            listSize == 0 ? null : inUseTables.get(mid).getParty().getName();
+            listSize == 0 ? null
+                : inUseTables.get(mid).getParty().getName().toUpperCase();
 
         while (min < max) {
             if (midItem.compareTo(name) >= 0) {
@@ -229,10 +231,11 @@ public class Restaurant {
                 min = mid + 1;
             }
             mid = (max + min) / 2;
-            midItem = inUseTables.get(mid).getParty().getName();
+            midItem = inUseTables.get(mid).getParty().getName()
+                .toUpperCase();
         }
 
-        if (listSize != 0 && name.equals(midItem)) {
+        if (listSize != 0 && name.equalsIgnoreCase(midItem)) {
             return mid;
         } else {
             if (mid == listSize-1 && name.compareTo(midItem) > 0)
@@ -256,7 +259,8 @@ public class Restaurant {
         int max = listSize - 1;
         int mid = (max + min) / 2;
         int midItem =
-            listSize == 0 ? null : list.get(mid).getSize();
+            listSize == 0 ? -1 : list.get(mid).getSize();
+
 
         while (min < max) {
             if (midItem >= size) {
@@ -277,8 +281,6 @@ public class Restaurant {
         }
     }
 
-
-
     /**
      * Checks whether a party with a given name exists in the restaurant.
      * @param name The name to search for.
@@ -289,22 +291,21 @@ public class Restaurant {
         boolean found = false;
         int size = partiesWaiting.size();
 
-        name = name.toUpperCase();
-
         for (int i = 0; i < size && !found; i++) {
-            if (partiesWaiting.get(i).getName().equals(name)) {
+            if (partiesWaiting.get(i).getName().equalsIgnoreCase(name)) {
                 found = true;
             }
         }
 
         size = inUseTables.size();
         for (int i = 0; i < size && !found; i++) {
-            if (inUseTables.get(i).getParty().getName().equals(name)) {
+            if (inUseTables.get(i).getParty().getName()
+                .equalsIgnoreCase(name)) {
                 found = true;
             }
         }
 
-        return found;
+        return !found;
     }
 
     public boolean tableNameFree(String name, boolean petSection) {
@@ -313,17 +314,15 @@ public class Restaurant {
                 petSection ? openPetTables : openNoPetTables;
         int size = openList.size();
 
-        name = name.toUpperCase();
-        
         for (int i = 0; i < size && !found; i++) {
-            if (openList.get(i).getName().equals(name)) {
+            if (openList.get(i).getName().equalsIgnoreCase(name)) {
                 found = true;
             }
         }
 
         size = inUseTables.size();
         for (int i = 0; i < size && !found; i++) {
-            if (inUseTables.get(i).getName().equals(name)
+            if (inUseTables.get(i).getName().equalsIgnoreCase(name)
                     && (petSection
                     ? inUseTables.get(i).getParty() instanceof PetParty
                     : inUseTables.get(i).getParty() instanceof NoPetParty)) {
@@ -331,7 +330,7 @@ public class Restaurant {
             }
         }
 
-        return found;
+        return !found;
     }
 
     public String waitingDetails() {
@@ -360,21 +359,30 @@ public class Restaurant {
 
     public String availableTableDetails() {
         int size = openPetTables.size();
-        String output = "The following " + size 
+        String output = "";
+
+        if (size == 0)
+            return "There are no available tables.";
+
+        if (size > 0) {
+            output += "The following " + size 
                 + (size > 1 ? " tables are " : " table is ")
                 + "available in the pet-friendly section:";
 
-        for(int i = 0; i < size; i++) {
-            output += "\n" + openPetTables.get(i).toString();
+            for(int i = 0; i < size; i++) {
+                output += "\n" + openPetTables.get(i).toString();
+            }
         }
 
         size = openNoPetTables.size();
-        output += "\nThe following " + size
+        if (size > 0) {
+            output += "\nThe following " + size
                 + (size>1?" tables are ":" table is") 
                 + "available in the non-pet-friendly section:";
 
-        for(int i = 0; i < size; i++) {
-            output += "\n" + openNoPetTables.get(i).toString();
+            for(int i = 0; i < size; i++) {
+                output += "\n" + openNoPetTables.get(i).toString();
+            }
         }
         return output;
     }

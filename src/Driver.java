@@ -114,13 +114,15 @@ public class Driver {
             System.out.println("No customer is being served!");
         }
         else {
-            String party = IOTools.promptLine("Enter the name of the customer that wants to leave: ");
+            String party = IOTools.promptLine("Enter the name of the "
+                    + "customer that wants to leave: ");
             String exitInfo = restaurant.partyExits(party);
             if(exitInfo != null) {
                 System.out.println(exitInfo);
             }
             else {
-                System.out.println("The party " + party + " is not seated currently");
+                System.out.println("The party " + party + " is not "
+                    + "seated currently");
             }
         }
     }
@@ -132,7 +134,9 @@ public class Driver {
      * @param restaurant The Restaurant object that will be passed to the other addTable mathod.
      */
     public static void addTable(Restaurant restaurant) throws IOException {
-        addTable(restaurant, (IOTools.promptLine("To which section would you like to add this table?(P/N)").equals("P")?true:false));
+        addTable(restaurant, 
+            IOTools.promptLine("To which section would you like to add " 
+                + "this table? (P/N): ").equalsIgnoreCase("P"));
     }
 
     /**
