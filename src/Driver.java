@@ -6,7 +6,7 @@ public class Driver {
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String args[]) throws IOException {
         Restaurant restaurant = new Restaurant();
-        String in;
+        int command;
         int tables;
         System.out.println("Enter your restaurant configuration:");
         tables = IOTools.promptPositiveInteger("How many tables does your pet-friendly section have? ");
@@ -28,37 +28,38 @@ public class Driver {
                            "    7.	Display info about waiting customer parties.\n" +
                            "    8.	Display info about customer parties being served.");
         do {
-            in = IOTools.promptInteger("Make your menu selection now: ",0,8);
-            switch (in) {
-            case "0":
-                System.exit(1);
-                break;
-            case "1":
-                addParty(restaurant);
-                break;
-            case "2":
-                seatParty(restaurant);
-                break;
-            case "3":
-                partyLeaves(restaurant);
-                break;
-            case "4":
-                addTable(restaurant);
-                break;
-            case "5":
-                removeTable(restaurant);
-                break;
-            case "6":
-                displayAvailableTables(restaurant);
-                break;
-            case "7":
-                displayPartyWait(restaurant);
-                break;
-            case "8":
-                displayPartyServed(restaurant);
-                break;
-            default:
-                System.out.println("Not an acceptable menu selection");
+            command = IOTools.promptInteger("Make your menu selection "
+                + "now: ", 0, 8);
+            switch (command) {
+                case 0:
+                    System.exit(1);
+                    break;
+                case 1:
+                    addParty(restaurant);
+                    break;
+                case 2:
+                    seatParty(restaurant);
+                    break;
+                case 3:
+                    partyLeaves(restaurant);
+                    break;
+                case 4:
+                    addTable(restaurant);
+                    break;
+                case 5:
+                    removeTable(restaurant);
+                    break;
+                case 6:
+                    displayAvailableTables(restaurant);
+                    break;
+                case 7:
+                    displayPartyWait(restaurant);
+                    break;
+                case 8:
+                    displayPartyServed(restaurant);
+                    break;
+                default:
+                    System.out.println("Not an acceptable menu selection");
             }
         } while(true);
     }
