@@ -1,0 +1,428 @@
+Enter your restaurant configuration:
+How many tables does your pet-friendly section have? 6
+Enter table name: blue 
+Enter number of seats: 4
+Enter table name: green
+Enter number of seats: 6
+Enter table name: yellow 
+Enter number of seats: 2
+Enter table name: blue
+Enter number of seats: silver 
+	That is not a valid integer. Please choose an integer: 4 
+Enter table name: red
+Enter number of seats: 2 
+Enter table name: orange
+Enter number of seats: 3
+How many tables does your non-pet-friendly section have? 7
+Enter table name: red 
+Enter number of seats: 6
+Enter table name: brown 
+Enter number of seats: 3
+Enter table name: magenta 
+Enter number of seats: 6
+Enter table name: pink 
+Enter number of seats: 3
+Enter table name: aquamarine 
+Enter number of seats: 2
+Enter table name: pink 
+This table already exists! Please enter another table name.
+Enter table name: marble 
+Enter number of seats: 8
+Enter table name: teal 
+Enter number of seats: 4
+Select from the following menu:
+    0.	Close the restaurant.
+    1.	Customer party enters the restaurant.
+    2.	Customer party is seated and served.
+    3.	Customer party leaves the restaurant.
+    4.	Add a table.
+    5.	Remove a table.
+    6.	Display available tables.
+    7.	Display info about waiting customer parties.
+    8.	Display info about customer parties being served.
+Make your menu selection now: 2
+No customers to serve!
+Make your menu selection now: 3
+No customer is being served!
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Beverly 
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Y
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Geordi 
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Worf 
+Not an acceptable menu selection
+Make your menu selection now: 4 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Will 
+Not an acceptable menu selection
+Make your menu selection now: 4 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Guinan 
+Not an acceptable menu selection
+Make your menu selection now: 4 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Jean-Luc 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: Y
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Deanna 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Data 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Will 
+Not an acceptable menu selection
+Make your menu selection now: Worf 
+Not an acceptable menu selection
+Make your menu selection now: Wesley 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 2
+No customers to serve!
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Deanna
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Worf
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Deanna 
+Not an acceptable menu selection
+Make your menu selection now: 4 
+Not an acceptable menu selection
+Make your menu selection now: Y
+Not an acceptable menu selection
+Make your menu selection now: 2
+No customers to serve!
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Wesley
+Not an acceptable menu selection
+Make your menu selection now: 2 
+Not an acceptable menu selection
+Make your menu selection now: 6 
+Not an acceptable menu selection
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 1 
+Not an acceptable menu selection
+Make your menu selection now: Data 
+Not an acceptable menu selection
+Make your menu selection now: Worf 
+Not an acceptable menu selection
+Make your menu selection now: 4 
+Not an acceptable menu selection
+Make your menu selection now: N
+Not an acceptable menu selection
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: P 
+Not an acceptable menu selection
+Make your menu selection now: orange
+Not an acceptable menu selection
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: N 
+Not an acceptable menu selection
+Make your menu selection now: marble 
+Not an acceptable menu selection
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: N 
+Not an acceptable menu selection
+Make your menu selection now: white
+Not an acceptable menu selection
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: P 
+Not an acceptable menu selection
+Make your menu selection now: grey
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Deanna
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Jean-Luc
+Not an acceptable menu selection
+Make your menu selection now: 3 
+Not an acceptable menu selection
+Make your menu selection now: Data
+Not an acceptable menu selection
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: N 
+Not an acceptable menu selection
+Make your menu selection now: brown
+Not an acceptable menu selection
+Make your menu selection now: 5 
+Not an acceptable menu selection
+Make your menu selection now: P 
+Not an acceptable menu selection
+Make your menu selection now: silver 
+Not an acceptable menu selection
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 2
+No customers to serve!
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7 
+Not an acceptable menu selection
+Make your menu selection now: 8 
+Not an acceptable menu selection
+Make your menu selection now: 4
+To which section would you like to add this table? (P/N): N
+Enter table name: pink
+Enter number of seats: teal
+	That is not a valid integer. Please choose an integer: yellow
+	That is not a valid integer. Please choose an integer: 3
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+The following 8 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink with 3 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 4
+To which section would you like to add this table? (P/N): P
+Enter table name: blue
+This table already exists! Please enter another table name.
+Enter table name: green
+This table already exists! Please enter another table name.
+Enter table name: grey
+Enter number of seats: 7
+Make your menu selection now: 6
+The following 7 tables are available in the pet-friendly section:
+table red with 2 seats
+table yellow  with 2 seats
+table orange with 3 seats
+table blue with 4 seats
+table blue  with 4 seats
+table green with 6 seats
+table grey with 7 seats
+The following 8 tables are available in the non-pet-friendly section:
+table aquamarine  with 2 seats
+table pink with 3 seats
+table pink  with 3 seats
+table brown  with 3 seats
+table teal  with 4 seats
+table magenta  with 6 seats
+table red  with 6 seats
+table marble  with 8 seats
+Make your menu selection now: 7
+No customers are waiting for tables!
+Make your menu selection now: 8
+No customers are being served!
+Make your menu selection now: 0
