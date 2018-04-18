@@ -10,17 +10,25 @@ public class ListRA<T> implements ListInterface<T> {
         items = (T[]) new Object[DEFAULT_SIZE];
         numItems = 0;
     }
-
+    /**
+     * Checks if the list is empty.
+     * @return true if empty, false otherwise
+     */
     public boolean isEmpty()
     {
         return (numItems == 0);
     }
-
+    /**
+     * Returns the size of the list
+     * @return the size of the list
+     */
     public int size()
     {
         return numItems;
     }
-
+    /**
+     * Clears the list by creating a new array and resetting numItems
+     */
     public void removeAll()
     {
         items = (T[]) new Object[DEFAULT_SIZE];
@@ -77,7 +85,11 @@ public class ListRA<T> implements ListInterface<T> {
         this.add(numItems, item);
     }
 
-
+    /**
+     * Returns the item that is stored in entered index of the list
+     * @param index the index to return the item from
+     * @return the item stored in the list
+     */
     public T get(int index)
     throws ListIndexOutOfBoundsException
     {
@@ -92,7 +104,11 @@ public class ListRA<T> implements ListInterface<T> {
                 "ListIndexOutOfBoundsException on get");
         }  // end if
     } // end get
-
+    /**
+     * Removes an item from the list and shifts all elements with larger indices down one index.
+     * @param index the index to be removed from
+     * @return the item that was removed
+     */
     public void remove(int index)
     throws ListIndexOutOfBoundsException
     {
@@ -120,16 +136,20 @@ public class ListRA<T> implements ListInterface<T> {
     } //end remove
 
     @Override
+    /**
+     * Returns a string representation of the list.
+     * @return a string representation of the list
+     */
     public String toString() {
         if (numItems == 0)
-            return "[]";
+            return "";
 
-        StringBuilder sb = new StringBuilder("[");
+        StringBuilder sb = new StringBuilder("");
         for (int i = 0; i < numItems; i++) {
-            sb.append(items[i].toString()).append(", ");
+            sb.append(items[i].toString()).append("\n");
         }
 
-        return sb.substring(0, sb.length() - 2) + "]";
+        return sb.substring(0, sb.length() - 1);
     }
 
 }

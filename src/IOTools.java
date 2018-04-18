@@ -72,6 +72,13 @@ public class IOTools {
         return Integer.parseInt(response);
     }
 
+    /**
+     * Prompts the user for a double with a given prompt.
+     * Asks again if the response is not a valid value.
+     * @param prompt The prompt to start the user with.
+     * @return A valid double, chosen by the user.
+     * @throws IOException
+     */
     public static double promptDouble(String prompt) throws IOException {
         System.out.print(prompt);
         String response = null;
@@ -102,6 +109,11 @@ public class IOTools {
         return response.matches(YES_FORMAT);
     }
 
+    /**
+     * Prompts the user for a string.
+     * @return the string entered by the user
+     * @throws IOException
+     */
     public static String promptLine(String prompt) throws IOException {
         System.out.print(prompt);
         return readLine();

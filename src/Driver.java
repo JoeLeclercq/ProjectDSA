@@ -97,29 +97,7 @@ public class Driver {
      * @param restaurant The Restaurant object where a party will be seated.
      */
     public static void seatParty(Restaurant restaurant) {
-        if(restaurant.partyWaitingSize()==0) {
-            System.out.println("No customers to serve!");
-        }
-        else {
-            Table table;
-            AbstractParty party;
-            boolean notSeat = true;
-            int count = 0;
-            while(notSeat) {
-                table = restaurant.seatParty(count++);
-                party = table.getParty();
-                if(table.getSize()>0) {
-                    System.out.println("Serving customer " + party.getName() + " party of " + party.getSize() + (party instanceof PetParty?" (Pet)": " (No Pet)") + " at table " + table.getName() + " with " + table.getSize() + " seats");
-                    notSeat = false;
-                }
-                else {
-                    System.out.println("Could not find a table with " + party.getSize() + " seats for customer " + party.getName() + "!");
-                }
-                if(count==restaurant.partyWaitingSize()) {
-                    System.out.println("No party can be served!");
-                }
-            }
-        }
+        System.out.println(restaurant.seatparty());
     }
     /**
      * Allows a party to leave their table.
@@ -130,16 +108,14 @@ public class Driver {
      * @param restaurant The Restaurant object where a party will attempt to leave.
      */
     public static void partyLeaves(Restaurant restaurant) {
-        if(restaurant.inUseTableSize()==0) {
+        if(restaurant.seatedParties()==0) {
             System.out.println("No customer is being served!");
         }
         else {
-            Object[] exitInfo;
             String party = IOTools.promptLine("Enter the name of the customer that wants to leave: ");
-            exitInfo = restaurant.partyExits(party);
+            String exitInfo = restaurant.partyExits(party);
             if(exitInfo != null) {
-                System.out.println("Table " + ((Table)exitInfo[0]).getName() + " with " + ((Table)exitInfo[0]).getSize() + " has been freed.");
-                System.out.println("Customer " + party + " party of " + ((AbstractParty)exitInfo[1]).getSize() + "(" +(exitInfo[1] instanceof PetParty?"Pet Party":"No Pet") + " is leaving the restaurant");
+                System.out.println(exitInfo);
             }
             else {
                 System.out.println("The party " + party + " is not seated currently");
