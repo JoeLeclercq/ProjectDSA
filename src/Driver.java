@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Driver {
     private static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         Restaurant restaurant = new Restaurant();
         String in;
         int tables;
@@ -70,7 +71,7 @@ public class Driver {
      *
      * @param restaurant The Restaurant object that will have a party added to it.
      */
-    public static void addParty(Restaurant restaurant) {
+    public static void addParty(Restaurant restaurant) throws IOException {
         String name;
         int size;
         boolean pet;
@@ -107,7 +108,8 @@ public class Driver {
      *
      * @param restaurant The Restaurant object where a party will attempt to leave.
      */
-    public static void partyLeaves(Restaurant restaurant) {
+    public static void partyLeaves(Restaurant restaurant)
+            throws IOException {
         if(restaurant.seatedParties()==0) {
             System.out.println("No customer is being served!");
         }
@@ -129,7 +131,7 @@ public class Driver {
      *
      * @param restaurant The Restaurant object that will be passed to the other addTable mathod.
      */
-    public static void addTable(Restaurant restaurant) {
+    public static void addTable(Restaurant restaurant) throws IOException {
         addTable(restaurant, (IOTools.promptLine("To which section would you like to add this table?(P/N)").equals("P")?true:false));
     }
 
@@ -143,9 +145,10 @@ public class Driver {
      * @param restaurant The Restaurant object that has a table added.
      * @param pet boolean, true for pet table, false for no pet
      */
-    public static void addTable(Restaurant restaurant, boolean pet) {
+    public static void addTable(Restaurant restaurant, boolean pet) 
+            throws IOException {
         boolean isDone = false;
-        String name;
+        String name = null;
         while(!isDone) {
             name = IOTools.promptLine("Enter table name: ");
             isDone = restaurant.tableNameFree(name, pet);
@@ -167,7 +170,8 @@ public class Driver {
      *
      * @param restaurant The Restaurant object that will have a table removed.
      */
-    public static void removeTable(Restaurant restaurant) {
+    public static void removeTable(Restaurant restaurant)
+            throws IOException {
         System.out.println("You are now removing a table");
         String section = IOTools.promptLine("From which section would you like to remove this table?(P/N) ");
         while(!section.equalsIgnoreCase("P") && !section.equalsIgnoreCase("N")){
