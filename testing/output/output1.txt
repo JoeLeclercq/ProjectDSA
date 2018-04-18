@@ -144,7 +144,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Geordi party of 3(No Pet)
 Customer Worf party of 4(No Pet)
 Customer Will party of 4(No Pet)
@@ -174,7 +173,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Worf party of 4(No Pet)
 Customer Will party of 4(No Pet)
 Customer Guinan party of 4(No Pet)
@@ -206,7 +204,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Guinan party of 4(No Pet)
 
 Make your menu selection now: 8
@@ -253,7 +250,9 @@ Make your menu selection now: 2
 Serving Customer Deanna party of 6(No Pet) at table marble with 8 seats
 
 Make your menu selection now: 2
-Could not find a table with 6 seats for customer Data!Could not find a table with 6 seats for customer Wesley!
+
+Could not find a table with 6 seats for customer Data!
+Could not find a table with 6 seats for customer Wesley!
 
 Make your menu selection now: 6 
 The following 4 tables are available in the pet-friendly section:
@@ -267,7 +266,6 @@ table brown with 3 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Data party of 6(No Pet)
 Customer Wesley party of 6(No Pet)
 
@@ -306,7 +304,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Data party of 6(No Pet)
 Customer Wesley party of 6(No Pet)
 
@@ -358,6 +355,7 @@ Enter the name of the customer that wants to leave: Wesley
 The party Wesley is not seated currently
 
 Make your menu selection now: 2 
+
 Could not find a table with 6 seats for customer Wesley!Serving Customer Deanna party of 4(Pet) at table silver with 4 seats
 
 Make your menu selection now: 6 
@@ -372,7 +370,6 @@ table teal with 4 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Wesley party of 6(No Pet)
 
 Make your menu selection now: 8
@@ -406,7 +403,6 @@ table teal with 4 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Wesley party of 6(No Pet)
 Customer Worf party of 4(No Pet)
 
@@ -475,7 +471,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Wesley party of 6(No Pet)
 Customer Worf party of 4(No Pet)
 
@@ -512,7 +507,6 @@ table marble with 8 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Wesley party of 6(No Pet)
 Customer Worf party of 4(No Pet)
 
@@ -539,7 +533,6 @@ table teal with 4 seats
 
 Make your menu selection now: 7 
 The following customer parties are waiting for tables: 
-
 Customer Worf party of 4(No Pet)
 
 Make your menu selection now: 8 
@@ -573,7 +566,6 @@ table teal with 4 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Worf party of 4(No Pet)
 
 Make your menu selection now: 8
@@ -608,7 +600,6 @@ table teal with 4 seats
 
 Make your menu selection now: 7
 The following customer parties are waiting for tables: 
-
 Customer Worf party of 4(No Pet)
 
 Make your menu selection now: 8

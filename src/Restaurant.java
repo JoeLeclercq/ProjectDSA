@@ -355,7 +355,9 @@ public class Restaurant {
 
         return "The following customer parties are waiting for tables: \n"
                 + petWaiting.toString().trim() 
-                + (petWaiting.isEmpty() || noPetWaiting.isEmpty) ? "" : "\n"
+                + ((petWaiting.length() == 0 || noPetWaiting.length() == 0)
+                    ? "" 
+                    : "\n")
                 + noPetWaiting.toString().trim();
     }
 
