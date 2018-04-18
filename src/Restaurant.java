@@ -1,8 +1,8 @@
 public class Restaurant {
-    ListRA<AbstractParty> partiesWaiting;
-    ListRA<Table> openPetTables;
-    ListRA<Table> openNoPetTables;
-    ListRA<Table> inUseTables;
+    private ListRA<AbstractParty> partiesWaiting;
+    private ListRA<Table> openPetTables;
+    private ListRA<Table> openNoPetTables;
+    private ListRA<Table> inUseTables;
 
     public Restaurant() {
         partiesWaiting = new ListRA<AbstractParty>();
@@ -12,17 +12,76 @@ public class Restaurant {
     }
 
     /**
+     * Returns the number of parties being served.
+     * @return The number of parties.
+     */
+    public int seatedParties() {
+        return inUseTables.size();
+    }
+
+    /**
      * Adds a party to the list of waiting parties.
      */
     public void partyEnters(AbstractParty party) {
         partiesWaiting.add(party);
     }
 
+    public String seatParty() {
+        int sizeWaiting = partiesWaiting.size();
+        if (sizeWaiting == 0)
+            return "No customers to serve!";
+        boolean seated = false;
+        int largestOpenPetSize = 
+                openPetTables.size() > 0
+                ? openPetTables.get(openPetTables.size() - 1) : 0;
+        int largestOpenNoPetSize = 
+                openNoPetTables.size() > 0
+                ? openNoPetTables.get(openNoPetTables.size() - 1) : 0;
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < sizeWaiting && !seated; i++) {
+            AbstractParty party = partiesWaiting.get(i);
+            int partySize = party.getSize();
+            String partyName = party.getName();
+            ListRA<Table> openList = (party instanceof PetParty)
+                    ? openPetTables : openNoPetTables;
+            boolean openTable = (party instanceof PetParty)
+                    ? partySize <= largestOpenPetSize
+                    : partySize <= largestOpenNoPetSize;
+            
+            if (openTable) {
+                int index = searchOpenTables(openList, partySize);
+                if (index < 0) 
+                    index = -index - 1;
+                Table table = openList.get(index);
+                openList.remove(index);
+                table.setParty(party);
+                inUseTables.add(
+                        -searchInUseTables(partyName)-1, table); 
+
+                sb.append("Serving ").append(party.toString())
+                    .append(" at ").append(table.toString());
+
+                seated = true;
+            } else {
+                sb.append("Could not find a table with ")
+                    .append(partySize)
+                    .append(partySize > 1 
+                            ? " seats for customer "
+                            : " seat for customer ")
+                    .append(partyName).append("!");
+            }
+        }
+        
+        return sb.toString();
+    }
+
     /**
      * The restaurant exits the party with the given name and frees
      * the table they're at, if they exist.
      * @param name The name of the party.
-     * @return
+     * @return A string containing information about the party who exited,
+     * if it exists, or null otherwise.
      */
     public Table partyExits(String name) {
         int index = searchInUseTables(name.toUpperCase());
@@ -36,16 +95,49 @@ public class Restaurant {
             table.setParty(null);
 
             if (petParty) {
-                int addIndex = searchOpenTables(openPetTables, table.getSize());
-                openPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);
+                int addIndex = searchOpenTables(openPetTables,
+                    table.getSize());
+                openPetTables.add(addIndex >= 0 
+                        ? addIndex
+                        : -addIndex - 1,
+                    table);
             } else {
-                int addIndex = searchOpenTables(openNoPetTables, table.getSize());
-                openNoPetTables.add(addIndex >= 0 ? addIndex : -addIndex - 1, table);
+                int addIndex = searchOpenTables(openNoPetTables,
+                    table.getSize());
+                openNoPetTables.add(addIndex >= 0
+                        ? addIndex
+                        : -addIndex - 1,
+                    table);
             }
-            return table;
+            return partyLeavesString(table, party);
         } else {
             return null;
         }
+    }
+
+    /**
+     * Returns a String containing information on the party exiting the 
+     * table specified.
+     * @param table The Table to use information from.
+     * @param party The party to use information from.
+     * @return A string that tells the table name, the seats freed, and the
+     * customer leaving the restaurant.
+     */
+    private String partyLeavesString(Table table, AbstractParty party) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Table ").append(table.getName()).append(" with ")
+            .append(table.getSize())
+            .append(table.getSize() > 1 
+                        ? " seats has been freed." 
+                        : " seat has been freed.").append("\n");
+        sb.append("Customer ").append(party.getName()).append(" party of ")
+            .append(party.getSize())
+            .append(party instanceof Pet
+                        ? " (Pet) is leaving the restaurant."
+                        : " (NoPet) is leaving the restaurant.");
+
+        return sb.toString();
     }
 
     /**
@@ -180,14 +272,21 @@ public class Restaurant {
 
     public String availableTableDetails() {
         int size = openPetTables.size();
-        String output = "The following " + size + (size>1?" tables are ":" table is " + "available in the pet-friendly section:";
-        for(Table t:openPetTables) {
-        output+="\n" + t.toString();
+        String output = "The following " + size 
+                + (size > 1 ? " tables are " : " table is ")
+                + "available in the pet-friendly section:";
+
+        for(Table t : openPetTables) {
+            output += "\n" + t.toString();
         }
+
         size = openNoPetTables.size();
-               output+="\nThe following " + size + (size>1?" tables are ":" table is" + "available in the non-pet-friendly section:";
-        for(Table t:openNoPetTables) {
-        output+="\n" + t.toString();
+        output += "\nThe following " + size
+                + (size>1?" tables are ":" table is") 
+                + "available in the non-pet-friendly section:";
+
+        for(Table t : openNoPetTables) {
+            output += "\n" + t.toString();
         }
         return output;
     }
