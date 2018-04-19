@@ -87,6 +87,7 @@ public class Driver {
      * in the restaurant already.
      *
      * @param restaurant The Restaurant object that will have a party added to it.
+     * @throws IOException when there is an issue reading in from the user
      */
     public static void addParty(Restaurant restaurant) throws IOException {
         String name;
@@ -124,6 +125,7 @@ public class Driver {
      * If the info received from partyExits is null then the party is said to not be seated.
      *
      * @param restaurant The Restaurant object where a party will attempt to leave.
+     * @throws IOException when there is an issue reading in from the user
      */
     public static void partyLeaves(Restaurant restaurant)
             throws IOException {
@@ -149,6 +151,7 @@ public class Driver {
      * representing the table's pet preference.
      *
      * @param restaurant The Restaurant object that will be passed to the other addTable mathod.
+     * @throws IOException when there is an issue reading in from the user
      */
     public static void addTable(Restaurant restaurant) throws IOException {
         addTable(restaurant, 
@@ -165,6 +168,7 @@ public class Driver {
      *
      * @param restaurant The Restaurant object that has a table added.
      * @param pet boolean, true for pet table, false for no pet
+     * @throws IOException when there is an issue reading in from the user
      */
     public static void addTable(Restaurant restaurant, boolean pet) 
             throws IOException {
@@ -191,6 +195,7 @@ public class Driver {
      * section.
      *
      * @param restaurant The Restaurant object that will have a table removed.
+     * @throws IOException when there is an issue reading in from the user
      */
     public static void removeTable(Restaurant restaurant)
             throws IOException {

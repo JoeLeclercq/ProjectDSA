@@ -18,7 +18,7 @@ public class IOTools {
      * @param lowerBound The lower bound of valid integers, inclusive.
      * @param upperBound The upper bound of valid integers, exclusive.
      * @return A valid integer given the specifications, chosen by the user.
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static int promptInteger(String prompt, int lowerBound, int upperBound) throws IOException {
         System.out.print(prompt);
@@ -41,7 +41,7 @@ public class IOTools {
      * Asks again if the response is not an integer.
      * @param prompt The prompt to start the user with.
      * @return A valid integer, chosen by the user.
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static int promptInteger(String prompt) throws IOException {
         System.out.print(prompt);
@@ -59,7 +59,7 @@ public class IOTools {
      * Asks again if the response is not a positive integer.
      * @param prompt The prompt to start the user with.
      * @return A valid integer, chosen by the user.
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static int promptPositiveInteger(String prompt) throws IOException {
         System.out.print(prompt);
@@ -77,7 +77,7 @@ public class IOTools {
      * Asks again if the response is not a valid value.
      * @param prompt The prompt to start the user with.
      * @return A valid double, chosen by the user.
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static double promptDouble(String prompt) throws IOException {
         System.out.print(prompt);
@@ -95,7 +95,7 @@ public class IOTools {
      * Prompts the user for a yes or no value, specified by y/n (not cap-sensitive).
      * @param initialPrompt The prompt to ask the user at first.
      * @return True if the user responses yes, otherwise false.
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static boolean promptYesNo(String initialPrompt) throws IOException {
         System.out.print(initialPrompt);
@@ -112,7 +112,7 @@ public class IOTools {
     /**
      * Prompts the user for a string.
      * @return the string entered by the user
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static String promptLine(String prompt) throws IOException {
         System.out.print(prompt);
@@ -122,7 +122,7 @@ public class IOTools {
     /**
      * Reads a line from the input stream and echoes the result.
      * @return the input entered
-     * @throws IOException
+     * @throws IOException if input is invalid
      */
     public static String readLine() throws IOException {
         String result = reader.readLine();

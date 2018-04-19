@@ -107,7 +107,6 @@ public class ListRA<T> implements ListInterface<T> {
     /**
      * Removes an item from the list and shifts all elements with larger indices down one index.
      * @param index the index to be removed from
-     * @return the item that was removed
      */
     public void remove(int index)
     throws ListIndexOutOfBoundsException
