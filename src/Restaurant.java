@@ -13,7 +13,7 @@ public class Restaurant {
 
     /**
      * Returns the number of parties being served.
-     * @return The number of parties.
+     * @return the number of parties.
      */
     public int seatedParties() {
         return inUseTables.size();
@@ -26,6 +26,13 @@ public class Restaurant {
         partiesWaiting.add(party);
     }
 
+    /**
+     * Attempts to seat the first party to have arrived that is still
+     * waiting to be seated. Only seats parties at tables big enough to
+     * hold them in their entirety.
+     * @return a String containing data about the parties that were not
+     * seated, and the one that was (if there is one).
+     */
     public String seatParty() {
         int sizeWaiting = partiesWaiting.size();
         if (sizeWaiting == 0)
@@ -82,8 +89,8 @@ public class Restaurant {
     /**
      * The restaurant exits the party with the given name and frees
      * the table they're at, if they exist.
-     * @param name The name of the party.
-     * @return A string containing information about the party who exited,
+     * @param name the name of the party.
+     * @return a string containing information about the party who exited,
      * if it exists, or null otherwise.
      */
     public String partyExits(String name) {
@@ -121,9 +128,9 @@ public class Restaurant {
     /**
      * Returns a String containing information on the party exiting the 
      * table specified.
-     * @param table The Table to use information from.
-     * @param party The party to use information from.
-     * @return A string that tells the table name, the seats freed, and the
+     * @param table the Table to use information from.
+     * @param party the party to use information from.
+     * @return a string that tells the table name, the seats freed, and the
      * customer leaving the restaurant.
      */
     private String partyLeavesString(Table table, AbstractParty party) {
@@ -147,8 +154,8 @@ public class Restaurant {
      * Adds a table into the given section.
      * Precondition: No table already exists with the given name in
      * the specified section.
-     * @param Table The Table to be added
-     * @param petSection True if this table goes in the Pet section,
+     * @param Table the Table to be added
+     * @param petSection true if this table goes in the Pet section,
      * false otherwise.
      */
     public void addTable(Table table, boolean petSection) {
@@ -166,10 +173,10 @@ public class Restaurant {
      * Removes a table with the specified name from the specified section,
      * if it exists and is possible. Will not remove a table that is 
      * currently in-use or one that is in the wrong section.
-     * @param name The name of the table to remove.
-     * @param petSection True if the table should be removed from the pet
+     * @param name the name of the table to remove.
+     * @param petSection true if the table should be removed from the pet
      * section, false otherwise.
-     * @return A string with information regarding the table's removal.
+     * @return a string with information regarding the table's removal.
      */
     public String removeTable(String name, boolean petSection) {
         ListRA<Table> openList = petSection ? openPetTables : openNoPetTables;
@@ -210,8 +217,8 @@ public class Restaurant {
     /**
      * Searches for the specified item within the in use tables
      * using a binary search.
-     * @param name The name of the party to search for.
-     * @return The index of the item within the list, if it exists.
+     * @param name the name of the party to search for.
+     * @return the index of the item within the list, if it exists.
      * If it is not within the list, returns -index - 1 for the index where
      * the item should exist.
      */
@@ -248,9 +255,9 @@ public class Restaurant {
     /**
      * Searches for a table with the specified list within the given list
      * using a binary search.
-     * @param list The list to look through, must be sorted by size.
-     * @param size The size of a table to search for.
-     * @return The index of a table within the list, if one exists.
+     * @param list the list to look through, must be sorted by size.
+     * @param size the size of a table to search for.
+     * @return the index of a table within the list, if one exists.
      * If it is not within the list, returns -index - 1 for the index where
      * the table should exist.
      */
@@ -284,8 +291,8 @@ public class Restaurant {
 
     /**
      * Checks whether a party with a given name exists in the restaurant.
-     * @param name The name to search for.
-     * @return True if a party waiting or seated has the given name,
+     * @param name the name to search for
+     * @return true if a party waiting or seated has the given name,
      * false otherwise.
      */
     public boolean partyNameFree(String name) {
@@ -309,6 +316,14 @@ public class Restaurant {
         return !found;
     }
 
+    /**
+     * Checks whether a table with the specified name can be placed in
+     * the section preferred.
+     * @param name the name to check.
+     * @param petSection true if searching in the pets-allowed, false
+     * otherwise.
+     * @return true if the name is free, false otherwise.
+     */
     public boolean tableNameFree(String name, boolean petSection) {
         boolean found = false;
         ListRA<Table> openList = 
@@ -334,6 +349,10 @@ public class Restaurant {
         return !found;
     }
 
+    /**
+     * Creates a String with details about those waiting to be seated.
+     * @return a String representation of who is waiting.
+     */
     public String waitingDetails() {
         if (partiesWaiting.size() == 0) {
             return "No customers are waiting for tables!";
@@ -361,6 +380,11 @@ public class Restaurant {
                 + noPetWaiting.toString().trim();
     }
 
+    /**
+     * Creates a String with details about the open tables.
+     * Separated by section.
+     * @return the String representation of the available tables.
+     */
     public String availableTableDetails() {
         int size = openPetTables.size();
         String output = "";
@@ -391,6 +415,10 @@ public class Restaurant {
         return output;
     }
 
+    /**
+     * Creates a String holding details of the tables currently in-use.
+     * @return the String representation of the used tables.
+     */
     public String inUseTableDetails() {
         int size = inUseTables.size();
         int pet = 0;
