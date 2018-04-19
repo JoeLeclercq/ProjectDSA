@@ -27,6 +27,8 @@ public class Driver {
         for(int i = 0; i < tables; i++) {
             addTable(restaurant, false);
         }
+
+        System.out.println();
         System.out.println("Select from the following menu:\n" +
                            "    0.	Close the restaurant.\n" +
                            "    1.	Customer party enters the restaurant.\n" +
@@ -37,11 +39,14 @@ public class Driver {
                            "    6.	Display available tables.\n" +
                            "    7.	Display info about waiting customer parties.\n" +
                            "    8.	Display info about customer parties being served.");
+        System.out.println();
+
         do {
             command = IOTools.promptInteger("Make your menu selection "
                 + "now: ", 0, 8);
             switch (command) {
                 case 0:
+                    System.out.println("Closing the restaurant. Goodbye!");
                     System.exit(1);
                     break;
                 case 1:

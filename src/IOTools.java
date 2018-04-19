@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 public class IOTools {
     private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static final String INT_FORMAT      = "^[+-]?\\d+$";
-    private static final String POS_INT_FORMAT  = "^+?\\d+$";
+    private static final String POS_INT_FORMAT  = "^+?[1-9]\\d*$";
     private static final String FLOAT_FORMAT
         = "^[+-]?(\\d+\\.?\\d*|.?\\d+)([eE][+-]?\\d+)?$";
     private static final String YES_NO_FORMAT   = "^(n|N|no|No|y|Y|yes|Yes)$";
