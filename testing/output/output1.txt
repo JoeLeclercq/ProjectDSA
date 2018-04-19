@@ -31,6 +31,7 @@ Enter table name: marble
 Enter number of seats: 8
 Enter table name: teal 
 Enter number of seats: 4
+
 Select from the following menu:
     0.	Close the restaurant.
     1.	Customer party enters the restaurant.
@@ -41,6 +42,7 @@ Select from the following menu:
     6.	Display available tables.
     7.	Display info about waiting customer parties.
     8.	Display info about customer parties being served.
+
 Make your menu selection now: 2
 No customers to serve!
 
@@ -612,3 +614,4 @@ Serving Customer Wesley party of 6(No Pet) at table marble with 8 seats
 Serving Customer Will party of 4(No Pet) at table magenta with 6 seats
 
 Make your menu selection now: 0
+Closing the restaurant. Goodbye!
