@@ -48,7 +48,8 @@ public class IOTools {
         String response;
 
         while (!(response = readLine().trim()).matches(INT_FORMAT)) {
-            System.out.print("\tThat is not a valid integer. Please choose an integer: ");
+            System.out.print("\tThat is not a valid input. Please enter "
+                + "an integer: ");
         }
 
         return Integer.parseInt(response);
@@ -66,7 +67,8 @@ public class IOTools {
         String response;
 
         while (!(response = readLine().trim()).matches(POS_INT_FORMAT)) {
-            System.out.print("\tThat is not a valid integer. Please choose an integer: ");
+            System.out.print("\tThat is not a valid input. Please enter "
+                + "a positive integer: ");
         }
 
         return Integer.parseInt(response);
