@@ -21,6 +21,7 @@ public class Restaurant {
 
     /**
      * Adds a party to the list of waiting parties.
+     * @param party the party to be added
      */
     public void partyEnters(AbstractParty party) {
         partiesWaiting.add(party);
@@ -154,7 +155,7 @@ public class Restaurant {
      * Adds a table into the given section.
      * Precondition: No table already exists with the given name in
      * the specified section.
-     * @param Table the Table to be added
+     * @param table the Table to be added
      * @param petSection true if this table goes in the Pet section,
      * false otherwise.
      */
