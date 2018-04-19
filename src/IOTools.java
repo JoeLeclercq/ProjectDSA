@@ -77,8 +77,8 @@ public class IOTools {
     /**
      * Prompts the user for a double with a given prompt.
      * Asks again if the response is not a valid value.
-     * @param prompt The prompt to start the user with.
-     * @return A valid double, chosen by the user.
+     * @param prompt the prompt to start the user with.
+     * @return a valid double, chosen by the user.
      * @throws IOException if input is invalid
      */
     public static double promptDouble(String prompt) throws IOException {
@@ -95,8 +95,8 @@ public class IOTools {
 
     /**
      * Prompts the user for a yes or no value, specified by y/n (not cap-sensitive).
-     * @param initialPrompt The prompt to ask the user at first.
-     * @return True if the user responses yes, otherwise false.
+     * @param initialPrompt the prompt to ask the user at first.
+     * @return true if the user responses yes, otherwise false.
      * @throws IOException if input is invalid
      */
     public static boolean promptYesNo(String initialPrompt) throws IOException {
@@ -113,6 +113,7 @@ public class IOTools {
 
     /**
      * Prompts the user for a string.
+     * @param prompt the prompt to give the user
      * @return the string entered by the user
      * @throws IOException if input is invalid
      */
